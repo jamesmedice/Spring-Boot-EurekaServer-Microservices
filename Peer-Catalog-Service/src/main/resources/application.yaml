@@ -1,0 +1,23 @@
+server:
+    port: 8882
+spring:
+    data:
+        rest: 
+            base-path: /api
+    application:
+        name: Peer-Catalog-Service
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://${DATABASE_HOST:127.0.0.1}:${DATABASE_PORT:3306}/${DATABASE_NAME:TaxGateway}?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+        username: root
+        password: ENC(3m+ps+4jEqVlVtSk2F/h0w==)
+        initialization-mode: always
+        schema: classpath:/schema.sql
+    jpa:
+        hibernate:
+            ddl-auto: none
+        show-sql: true
+        generate-ddl: false
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
